@@ -1,0 +1,73 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.preload{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: #77b3d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease;
+}
+.bulut1, .bulut2, .bulut3{
+  height: 50px;
+  position: absolute;
+  right: 0;
+}
+.bulut1{
+  top: 35%;
+  transform: translate(100%, -25%);
+  animation: bulut 3s ease infinite;
+  z-index: -1;
+}
+.bulut2{
+  top: 50%;
+  transform: translate(100%, -50%);
+  animation: bulut 3s ease infinite 1s;
+  z-index: 1;
+}
+.bulut3{
+  top: 60%;
+  transform: translate(100%, -75%);
+  animation: bulut 3s ease infinite 1.5s;
+}
+.uçak{
+  height: 200px;
+  animation: ucak 0.8s ease infinite alternate;
+}
+.preload h3{
+  position: absolute;
+  top: 78%;
+  transform: translateY(-75%); /*kapsayıcının kendi genişliğinin veya yüksekliğinin belirli bir oranına göre ana ızgarada kaymasını sağlayan işlev.*/
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  font-family: sans-serif;
+}
+.preload-finish{
+  opacity: 0;
+  pointer-events: none;
+}
+section img{
+  height: 200px;
+}
+@keyframes ucak{
+  from{
+    transform: translateY(0px);
+  }
+  to{
+    transform: translateY(50px);
+  }
+}
+@keyframes bulut{
+  from{
+    right: 0%;
+  }
+  to{
+    right: 130%;
+  }
+}

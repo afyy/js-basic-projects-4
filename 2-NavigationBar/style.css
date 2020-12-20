@@ -1,0 +1,97 @@
+*{
+  margin: 0px; /*kapsayıcının dışında kalan marj'ın kalınlığını belirler*/
+  padding: 0px; /*kapsayıcının dolgusunu ayarlar*/
+  box-sizing: border-box; /*???*/
+}
+nav{
+  display: flex; /*???*/
+  justify-content: space-around;/*flex özelliğine sahip olan bir kapsayıcının yatay eksende nasıl hizalanacağını ayarlar.*/
+  align-items: center; /*flex özelliğine sahip olan bir kapsayıcının dikey eksende nasıl hizalanacağını ayarlar*/
+  min-height: 8vh;
+  background-color:salmon; /*kapsayıcının arka plan rengini belirler*/
+  font-family: 'Poppins', sans-serif; /*kapsayıcının içerisindeki metnin yazım şeklini belirler*/
+}
+.logo{
+  color: rgb(37, 31, 116);/*???*/
+  text-transform: uppercase; /*kapsayıcınının içerisindeki metni dönüştürmeye yarar(istenilen özelliğe)*/
+  letter-spacing: 5px; /*kapsayıcının içerisindeki harflerin arasındaki boşluk miktarını belirler*/
+  font-size: 20px; /*kapsayıcının içerisindeki metnin punto büyüklüğünü ayarlar*/
+}
+.nav-links{
+  display: flex; /*???*/
+  background-color:rgb(216, 219, 41); /*kapsayıcının arka plan regini belirler*/
+  justify-content: space-around; /*flex özelliğine sahip olan bir kapsayıcının yatay eksende nasıl hizalanacağını ayarlar.*/
+  width: 40%;
+}
+.nav-links li{
+  list-style: none; /*list-style-type: list-style-position: ve list-style-image: özelliklerinin hepsini none olarak ayarlar*/
+}
+.nav-links a{
+  color: rgb(37, 31, 116);/*???*/
+  text-decoration: none; /*bir metnin altını çizmek, üstünü çizmek yada metnin üzerine çizgi koymak için kullanılır.*/
+  letter-spacing: 3px; /*bir metnin harfleri arasındaki boşluk*/
+  font-weight: bold; /*yazının kalınlığı, font familiy nin özellikleri önemlidir. o ailede olmayan bir kalınlığı kullanamayız.*/
+  font-size: 14px; /*yazı tipinin(fontun) boyutunu belirlemek için kullanılır.*/
+}
+.burger{
+  display: none;
+}
+.burger div{
+  width: 25px; /*elemanların/etiketlerin genişlik değerini ayarlar*/
+  height: 3px; /*elemanların/etiketlerin yükseklik değerini ayarlar*/
+  background-color: rgb(37, 31, 116);/*elemanın,etiketin veya kapsayıcının arkaplan rengini ayarlar.*/
+  margin: 5px; /*marj'ı 5px kalınlığına getirir.*/
+  transition: all 0.3s ease;
+}
+@media screen and (max-width: 1024px){
+  .nav-links{
+    width: 60%; /*genişlik yüzde60a düşer*/
+  }
+}
+@media screen and (max-width: 768px){
+  body{
+    overflow-x: hidden; /*bir kapsayıcının içerisindeki elemanlar taşarsa o elemanların ne olacağına karar verir.*/
+  }
+  .nav-links{
+    position: absolute; /*içerisinde bulunduğu kapsayıcıya göre konumlandırılır.*/
+    right: 0px; /*sağ taraftan 0px uzakta*/
+    height: 92vh; /*yükseklik 92vh*/
+    top: 8vh; /*üstten 8vh uzakta*/
+    background-color:rgb(216, 219, 41); /*kapsayıcının arka plan regini belirler*/
+    display: flex; /*???*/
+    flex-direction: column; /*elemanları yukardan aşağı dizer*/
+    align-items: center; /*itemleri yatay olarak ortalar*/
+    width: 20%; /*genişliği %20 yapar*/
+    transform: translateX(100%); /*x ekseninde kaydırır*/
+    transition: transform 0.5s ease-in;
+  }
+  .nav-links li{
+    opacity: 0;
+  }
+  .burger{
+    display: block; /*bu elemanı bloksal bir eleman yapar*/
+    cursor: pointer;
+  }
+}
+.nav-active{
+  transform: translateX(0%);
+}
+@keyframes navLinkFade{
+  from{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+.toggle .line1{
+  transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+  opacity: 0;
+}
+.toggle .line3{
+  transform: rotate(45deg) translate(-5px,-6px);
+}
